@@ -28,8 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       render :json => {'token' => @user.auth_token}, :status => 200  
     else
-      puts "VERY WEIRD"
-      render :json => {'error' => 'email exists'}, :status => 422
+      render :json => @user.errors.messages, :status => 422
     end
   end
   
