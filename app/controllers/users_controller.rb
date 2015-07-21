@@ -20,10 +20,7 @@ class UsersController < ApplicationController
   end
 
   def signup
-    @user = User.new()
-    @user.email = params[:email]
-    @user.password = params[:password]
-    
+    @user = User.new(email: params[:email], password: params[:password])
     @user.auth_token = generate_token()
     if @user.save
       render :json => {'token' => @user.auth_token}, :status => 200  
