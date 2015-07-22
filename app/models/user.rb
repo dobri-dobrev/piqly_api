@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :email, :message => "email field empty"
 	validates_uniqueness_of :email, :message => "email already used"
 	validates :email, :email => { :message => "invalid email" }
+	validates_length_of :password, minimum: 6, :message => "password too short"
 
 	def self.authenticate(email, password)
 	  	user = find_by_email(email)
