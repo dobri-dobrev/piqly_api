@@ -8,6 +8,14 @@ To implement:
 - password_reset
 - password min length validation
 
+To run on AWS:
+screen -r
+rvmsudo rails server -b 0.0.0.0 -p 80
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+screen -ls
+screen -X -S [session] quit
+
+
+ssh -i DobriLaptop.pem ubuntu@ec2-52-24-171-247.us-west-2.compute.amazonaws.com
+
+
